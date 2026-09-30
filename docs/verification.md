@@ -1,0 +1,3 @@
+# Verification boundary for v0.1
+
+The initial suite contains 15 passing tests, including three RTL differential seeds with 800 cycles each: 2,400 finite stimulus transitions compared against an independent dictionary-based oracle. Codec and state tests cover corruption, duplicates, gaps, stale epochs, risk bounds, output stalls, terminal handling and recovery. The retained demonstration trace is a subset from one seed; it contains simulator observations, not nanosecond hardware measurements. Package builds are exercised by CI. No physical FPGA, formal completeness, P&R, MAC/PHY, production protocol or official STAC run is claimed.

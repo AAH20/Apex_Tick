@@ -1,0 +1,59 @@
+{
+  "status": "candidate_contracts_not_board_implementations",
+  "platforms": [
+    {
+      "platform": "Cisco Nexus K3P-S",
+      "device": "XCKU3P-2",
+      "io": "2 SFP28; 10/25GbE candidate profiles",
+      "proposed_role": "Compact initial hardware target if development access is available",
+      "limitations": [
+        "Board capacity and timing closure must be established for the selected core.",
+        "Published 4 ns timestamp resolution does not establish sub-nanosecond measurement accuracy.",
+        "FDK, tool licensing, board revision and procurement remain access gates."
+      ],
+      "source": "https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/nexus-smartnic/datasheet-c78-743827.html"
+    },
+    {
+      "platform": "AMD Alveo U200 or U250",
+      "device": "Select exact SKU and revision before estimating resource or timing margins",
+      "proposed_role": "Alternative implementation platform when available",
+      "limitations": [
+        "A larger resource budget does not establish a lower PHY or pipeline latency.",
+        "Clock, transceiver, MAC, shell and license configuration are part of the result."
+      ],
+      "source": "https://docs.amd.com/r/en-US/ds962-u200-u250/FPGA-Resource-Information"
+    },
+    {
+      "platform": "AMD Alveo UL3524 A-UL3524-P16G-PQ-G",
+      "proposed_role": "Specialized low-latency research platform after the portable design works",
+      "limitations": [
+        "Device capability is not an Apex_Tick performance result.",
+        "Device IP, board access, tool support, measurement instrument and commercial terms must be confirmed."
+      ],
+      "sources": [
+        "https://www.amd.com/en/products/accelerators/alveo/ul3524/a-ul3524-p16g-pq-g.html",
+        "https://docs.stacresearch.com/news/AMD240422"
+      ]
+    },
+    {
+      "platform": "eFPGA or hybrid/custom ASIC",
+      "proposed_role": "Partner-funded feasibility and later silicon path",
+      "limitations": [
+        "No performance prediction from process-node or DUV/EUV labels alone.",
+        "Require qualified macro/PDK, tool access, corner analysis, package and die-boundary costs.",
+        "NRE, verification, physical design, yield, test and deployment volumes determine economics.",
+        "A simulated or placed-and-routed design remains distinct from measured silicon."
+      ]
+    }
+  ],
+  "required_before_board_support": [
+    "exact board revision",
+    "tool/IP access",
+    "clock and reset constraints",
+    "PHY/PCS/MAC integration",
+    "frame integrity implementation",
+    "output transport",
+    "reproducible physical timing and calibration",
+    "external load and fault measurements"
+  ]
+}

@@ -1,0 +1,29 @@
+flowchart TB
+  I["Planned wire adapter: synthetic UDP input"] --> P["Planned PHY PCS MAC"]
+  P --> D["Planned hardware decoder; software codec implemented"]
+  P --> F["Trusted adapter input: frame integrity"]
+  D --> G["Strict integrity gate"]
+  F --> G
+  G --> S["Sequence and bounded state update"]
+  S --> R["Deterministic decision and exposure reservation"]
+  R --> Q["Reserve output capacity"]
+  Q --> C["Atomic commit<br/>Unique order ID, exposure journal and enqueue"]
+  C --> E["Planned wire serializer"]
+  E --> O["Planned MAC PCS PHY output"]
+  Q -->|"Congestion"| H["Declared hold or reject policy"]
+  S -->|"Gap or invalid authority"| H
+  H --> REC["Planned Apex_ULL recovery adapter"]
+  REC -->|"Validated snapshot and epoch handoff"| S
+  CFG["Versioned configuration<br/>Epoch activation"] --> S
+  CFG --> R
+  TERM["Trusted adapter input: terminal identity"] -->|"Release pending exposure"| R
+  C -.-> T["Planned bounded telemetry; overflow policy"]
+  T -.-> HOST["Implemented RTL-simulation evidence capture"]
+  EXT["Planned external calibrated measurement"] -.-> P
+  O -.-> EXT
+  EXT --> ATLAS["Apex_PerfAtlas simulation evidence now; physical evidence gated"]
+  HOST --> ATLAS
+  SIM["Implemented Icarus testbench and independent oracle"] --> HOST
+  classDef card fill:#111827,stroke:#94a3b8,color:#ffffff,stroke-width:2px;
+  class I,P,D,F,G,S,R,Q,C,E,O,H,REC,CFG,TERM,T,HOST,EXT,ATLAS,SIM card;
+  linkStyle default stroke:#94a3b8,stroke-width:2px;

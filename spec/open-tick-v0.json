@@ -1,0 +1,26 @@
+{
+  "id": "apex.tick.open",
+  "version": "0.1.0",
+  "rights": "public_redistributable",
+  "protocol": "36-byte network-endian synthetic ask-quote UDP payload",
+  "format": [
+    "magic APXT:4 bytes",
+    "version:1 byte",
+    "kind ask=1:1 byte",
+    "flags zero:2 bytes",
+    "sequence:8 bytes",
+    "instrument:2 bytes",
+    "reserved zero:2 bytes",
+    "price unsigned fixed units:4 bytes",
+    "quantity unsigned units:4 bytes",
+    "epoch:4 bytes",
+    "CRC32 of preceding 32 bytes:4 bytes"
+  ],
+  "integrity": "Software codec validates application CRC and requires separately established Ethernet integrity. RTL core receives normalized fields and trusted frame_ok; a hardware decoder/MAC is not implemented.",
+  "state": "8 instruments; 16 pending identities; no counter wrap",
+  "strategy": "buy fixed configured quantity when ask <= threshold and available quote quantity >= order quantity",
+  "risk": "outstanding quantity cap and order count per 64 core clock cycles",
+  "authority": "reset holds output authority; recovery needs newer epoch and zero pending exposure; host must reconcile unknown obligations after hard reset",
+  "output": "normalized registered simulated-order fields; wire output serializer and production exchange session are not implemented",
+  "measurement": "simulation correctness only; no physical nanosecond result"
+}

@@ -1,0 +1,6 @@
+include README.md LICENSE NOTICE
+recursive-include rtl *.json *.py *.sv *.md *.mmd *.svg
+recursive-include verification *.json *.py *.sv *.md *.mmd *.svg
+recursive-include spec *.json *.py *.sv *.md *.mmd *.svg
+recursive-include boards *.json *.py *.sv *.md *.mmd *.svg
+recursive-include docs *.json *.py *.sv *.md *.mmd *.svg
