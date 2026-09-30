@@ -1,0 +1,7 @@
+{
+  "seed": 17,
+  "cycles": 800,
+  "instruments": 8,
+  "max_pending": 16,
+  "window_cycles": 64
+}

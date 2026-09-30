@@ -1,0 +1,8 @@
+{
+  "sources": {
+    "rtl/apex_tick_core.sv": "576cb20a09a693facc705e843c5fabc81868e84a336d2020b1d24944c0996b12",
+    "verification/core_tb.sv": "75bdfcd8b6ed91e0892c039d841ad497ddcd39988012e1472ae96589ab7334ec",
+    "verification/verify.py": "7cdee428dd1ae5ea0fbe2a2dbcdb3ad1ac8b8a477e49e06a2146d4fc9b5705c7",
+    "src/apex_tick/oracle.py": "d10bbd91505d17ae51e6e0a512ea3f209ebba279e379bea957660fdaa0093e60"
+  }
+}

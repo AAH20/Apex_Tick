@@ -1,0 +1,119 @@
+{
+  "schema_version": "0.1.0",
+  "run_id": "apex-tick-simulation-17-800",
+  "status": "valid",
+  "claim_kind": "measured",
+  "provenance": {
+    "repository_url": "https://github.com/AAH20/Apex_Tick",
+    "commit": "f32b1a204bd93bbdfbae44f63be3f01d4f118a5b",
+    "dirty": false,
+    "config_sha256": "502e31a44f53073fba5866e1dd6c814a09a1b55dfb24d07e69d8d1174707d6ad",
+    "recorded_at": "2026-09-30T13:15:27.017813+00:00",
+    "sources": []
+  },
+  "workload": {
+    "id": "apex.tick.core.functional",
+    "version": "0.1.0",
+    "kind": "synthetic",
+    "spec_sha256": "c6a6ffc515547cb6ced7286d5660c1a1578a4845ade7cd296c86f582f11a096c",
+    "input_sha256": "502e31a44f53073fba5866e1dd6c814a09a1b55dfb24d07e69d8d1174707d6ad",
+    "rights": "public_redistributable",
+    "semantics": "Seeded normalized-event stimulus cycles compared with independent dictionary oracle",
+    "frame_integrity_policy": "validate_before_action"
+  },
+  "platform": {
+    "inventory_artifact": "inventory",
+    "implementation_artifact": "build",
+    "transport_backend": "normalized_event_testbench",
+    "backend_status": "simulated"
+  },
+  "evidence": {
+    "implementation": "rtl_simulation",
+    "environment": "simulator",
+    "validation": "none",
+    "validation_receipt": null
+  },
+  "measurement": {
+    "method": "simulation",
+    "start_boundary": "first normalized-event stimulus cycle",
+    "stop_boundary": "last scoreboard observation",
+    "clock_artifact": null,
+    "calibration_artifact": null,
+    "resolution_ns": null,
+    "uncertainty_artifact": null,
+    "warmup_policy": "none; functional verification",
+    "sampling_policy": "every stimulus cycle and registered output state",
+    "sample_count": 800
+  },
+  "traffic": {
+    "schedule_artifact": "input",
+    "offered_count": 800,
+    "accepted_count": 800,
+    "completed_count": 800,
+    "rejected_count": 0,
+    "dropped_count": 0,
+    "duplicate_output_count": 0,
+    "wrong_output_count": 0,
+    "unresolved_count": 0
+  },
+  "metrics": [
+    {
+      "id": "simulation.matched_transitions",
+      "value": 800,
+      "unit": "count",
+      "statistic": "total",
+      "population": "simulator stimulus cycles, not market messages or orders",
+      "direction": "context"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "config",
+      "role": "configuration",
+      "location": "config.json",
+      "sha256": "502e31a44f53073fba5866e1dd6c814a09a1b55dfb24d07e69d8d1174707d6ad",
+      "visibility": "public"
+    },
+    {
+      "id": "inventory",
+      "role": "platform_inventory",
+      "location": "inventory.json",
+      "sha256": "e70dcfe8a9390ccb3db997a306d6f9af8fdb22c14df832291ac4129560147092",
+      "visibility": "public"
+    },
+    {
+      "id": "build",
+      "role": "implementation",
+      "location": "build.json",
+      "sha256": "f18b1281c3e0e09055321eb3576335e8f9f4dc29ee6ea2ae1ea938beb012b5cf",
+      "visibility": "public"
+    },
+    {
+      "id": "workload",
+      "role": "workload",
+      "location": "workload.json",
+      "sha256": "c6a6ffc515547cb6ced7286d5660c1a1578a4845ade7cd296c86f582f11a096c",
+      "visibility": "public"
+    },
+    {
+      "id": "input",
+      "role": "stimulus_seed_and_bound",
+      "location": "input.json",
+      "sha256": "502e31a44f53073fba5866e1dd6c814a09a1b55dfb24d07e69d8d1174707d6ad",
+      "visibility": "public"
+    },
+    {
+      "id": "trace",
+      "role": "cycle_transition_trace",
+      "location": "trace.json",
+      "sha256": "308adce364d0d1cf1e643df0bf03188125ba750dfb64cda0c7cefe00f14f1c0a",
+      "visibility": "public"
+    }
+  ],
+  "limitations": [
+    "Finite functional RTL simulation; no physical FPGA, line-rate I/O, formal proof or latency measurement.",
+    "Traffic counts describe simulator stimulus cycles, not accepted trading events.",
+    "Host reconciliation and frame integrity are trusted external adapter inputs.",
+    "Testbench clock period is stimulus, not a device performance claim."
+  ]
+}

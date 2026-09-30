@@ -56,3 +56,7 @@ Copyright 2026 Ahmed Hassan. Apache-2.0 for original software and RTL. Third-par
 ![Architecture with explicit dark cards](docs/tick.svg)
 
 Editable [Mermaid source](docs/tick.mmd). Node labels distinguish implemented components, trusted inputs, and planned adapters. The architecture includes future gates; it is not a claim that the full pipeline has shipped.
+
+## Retained functional evidence
+
+[2026-09-30 simulation](evidence/simulation/2026-09-30/run.json) retains 800 seed-17 RTL observations, source hashes, configuration and simulator identity. It records the clean source commit used for execution. This is a functional demonstration, with no physical board or nanosecond metric. Validate with `apex-atlas validate evidence/simulation/2026-09-30/run.json`; independently reproduce with `python verification/emit_evidence.py --output output/replay --seed 17 --cycles 800`.
